@@ -1,0 +1,27 @@
+.parentImage {
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+
+.NumberLine {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.fish {
+    width: 15vw;
+    max-width: 70px;
+    transition-duration: 0.6s;
+}
+
+@media only screen and (max-width: 700px) {
+    .fish {
+        width: 10vw;
+    }
+}
+
+@media screen and (max-height: 480px) {
+
+}
