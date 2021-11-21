@@ -1,165 +1,50 @@
 import React from 'react';
-import './drag.css'
-import { Stage, Layer, Text } from 'react-konva';
-import { useEffect } from 'react';
-// import fishSplash from './assets/sounds/fishSplash.wav'
-import './NumberLineMove.css'
-import sessionData from '../utils/sessionData';
-import useImage from 'use-image';
-import { min } from 'moment';
+import Colors from '../constant/colors'
+import PropTypes from 'prop-types'
+// import correctAnswerSound from '../assets/sounds/ca.mp3'
+import correctAnswerSound from '../assets/sounds/rightAnswer.mp3'
+import wrongAnswerSound from '../assets/sounds/wrongAnswer.mp3'
+function AnswerModal({ type, text }) {
+    
+    if(type != "success"){
 
-const RenderCharacter = ({ chObject, handleClick }) => {
-    return (
-        <Text
-            text={chObject.ch}
-            x={chObject.x}
-            y={chObject.y}
-            fontSize={30}
-            fontStyle="bold"
-            fontFamily='Calibri'
-            fill="red"
-            // I will use offset to set origin to the center of the image
-            onClick={handleClick}
-            onTouchStart={handleClick}
-        />
-    );
-};
-
-const Alphabets = (props) => {
-
-    const [chSet, setChSet] = React.useState([
-        { x: 0, y: 0, ch: 'O' },
-        { x: 0, y: 0, ch: 'N' },
-        { x: 0, y: 0, ch: 'E' },
-        { x: 0, y: 0, ch: 'T' },
-        { x: 0, y: 0, ch: 'W' },
-        { x: 0, y: 0, ch: 'H' },
-        { x: 0, y: 0, ch: 'R' },
-        { x: 0, y: 0, ch: 'F' },
-        { x: 0, y: 0, ch: 'U' },
-        { x: 0, y: 0, ch: 'I' },
-        { x: 0, y: 0, ch: 'V' },
-        { x: 0, y: 0, ch: 'S' },
-        { x: 0, y: 0, ch: 'X' },
-        { x: 0, y: 0, ch: 'G' },
-        { x: 0, y: 0, ch: 'Z' }])
-    const [stageWidth, setStageWidth] = React.useState(300)
-    const [stageHeight, setStageHeight] = React.useState(300)
-    const [minDistance, setMinDistance] = React.useState(40)
-    const [blanks, setBlanks] = React.useState(["?"])
-    const [answer, setAnswer] = React.useState("")
-    const container = React.useRef();
-    const stageRef = React.useRef();
-
-    const checkSize = () => {
-        const width = container.current.offsetWidth;
-        const height = container.current.offsetHeight;
-        setMinDistance(height * 0.5)
-        setStageWidth(width)
-        setStageHeight(height)
-    };
-    const removeNthCharacter = (string, index) => {
-
-        var tmp = string.split(''); // convert to an array
-        tmp.splice(index, 1); // remove 1 element from the array (adjusting for non-zero-indexed counts)
-        return tmp.join(''); // reconstruct the string
     }
+    const modalType = type === "success" ? 
+        ({ class: "correct-answer", el: <i className="fas fa-check"></i>}) : 
 
-    useEffect(() => {
-
-        checkSize();
-
-        window.addEventListener("resize", checkSize);
-        // dragThis.current.addEventListener('touchmove', checkDrag);
-
-        return () => {
-            window.removeEventListener("resize", checkSize)
-            // dragThis.current.removeEventListener("touchmove", checkDrag)
-        }
-    }, [])
-    useEffect(() => {
-        props.setAnswer(answer)
-    }, [answer])
-    useEffect(() => {
-
-        let offsetx = 10
-        let offsety = 10
-        let newChSet = chSet.map((item) => {
-
-            if (offsetx > (stageWidth - 10)) {
-                offsetx = 10
-                offsety += 40
-            }
-            let obj = {
-                x: offsetx,
-                y: offsety,
-                ch: item.ch
-            }
-            offsetx += minDistance
-            return (
-                // {
-                //     x: Math.random() * (stageWidth - 40) + 10,
-                //     y: Math.random() * (stageHeight - 40) + 10,
-                //     ch: item.ch
-                // }
-                obj
-            )
-        })
-        setChSet(newChSet)
-
-    }, [stageWidth, stageHeight])
-
-
+        ({ class: "wrong-answer", el: <i className="fas fa-times-circle"></i>});
     return (
-
-        <div className="noselect parentDiv"  style={{display : "flex"}}>
-            <div>
-                <div className="dropBox"
-                    ref={container}
-                >
-                    <Stage
-                        width={stageWidth}
-                        height={stageHeight}
-                        ref={stageRef}
-                    >
-                        <Layer>
-                            {chSet.map((chObject, index) => {
-                                return <RenderCharacter chObject={chObject} handleClick={() => {
-                                    let temp = [...blanks]
-                                    temp[temp.length - 1] = chObject.ch
-                                    setAnswer(answer + chObject.ch)
-                                    temp.push("?")
-                                    setBlanks(temp)
-                                }} />
-                            })}
-                        </Layer>
-                    </Stage>
-                </div>
-                <div style={{ display: "flex", maxWidth:"300px" }}>
-                    {blanks.map((item, index) => {
-                        return (
-                            <h1 onClick={() => {
-                                if (index == blanks.length - 1) return;
-                                setBlanks(
-                                    blanks.filter((itm, idx) => idx !== index)
-                                )
-                                setAnswer(removeNthCharacter(answer, index))
-                            }}>
-                                <u>{item}</u> &nbsp;
-                            </h1>
-                        )
-                    })}
-                </div>
+        <section>
+            <div className={`answer  ${modalType.class}`}>
+                <h2> {modalType.el} </h2>
             </div>
-            <div>
-                <button className="App-link" style={{marginLeft : "20px", marginBottom : "10vh"}}onClick={() => {
-                    props.onClick()
-                }}> <i class="fa fa-paper-plane" aria-hidden="true"></i> </button>
-            </div>
-        </div >
+            <Message type={type} text={text} />
+        </section>
+        );
+}
 
-    );
-};
+function Message({ text, type }) {
+    const rightSound = new Audio(correctAnswerSound)
+    const wrongSound = new Audio(wrongAnswerSound)
+    if (type === "success") {
+        rightSound.play()
+    }
+    else{
+        wrongSound.play();
+    }
+    return (
+        <span>
+            {text && (type === "success") && <h4 style={{color: Colors.green }}>{text}</h4> } 
+            {text && (type !== "success") && <h4 style={{color: Colors.midGray }}>صحیح جواب: <span style={{color: Colors.lightGray }}>{text}</span></h4>}
+        </span>
+    )
+}
 
-export default Alphabets;
 
+AnswerModal.propTypes = {
+    type: PropTypes.oneOf(['success', 'error']),
+    text: PropTypes.string,
+}
+
+
+export default AnswerModal;

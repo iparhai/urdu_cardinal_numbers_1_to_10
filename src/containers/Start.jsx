@@ -10,7 +10,7 @@ class Start extends React.Component {
     state = {
         player: "player",
         startGameSound: new Audio(startSoundEffect),
-        countDownSound: new Audio(countDownEffect)
+        countDownSound : new Audio(countDownEffect)
     }
 
     setNameOfPlayer = (event) => {
@@ -19,9 +19,8 @@ class Start extends React.Component {
 
     clicked = () => {
         Session.set("onlinePlayer", this.state.player)
-        this.state.startGameSound.pause()
         this.state.countDownSound.play()
-
+        
         this.props.startPressed();
     }
 
@@ -59,9 +58,10 @@ class Start extends React.Component {
                     <h1>Math?</h1> */}
                 </div>
                 <p>
-                    Press to start the game
+
+                    گیم شروع کرنے کے لیے بٹن دبائیں۔
                 </p>
-                <Button isClicked={this.clicked}>Start</Button>
+                <Button isClicked={this.clicked}>شروع کریں</Button>
             </div>
         )
     }

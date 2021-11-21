@@ -13,10 +13,10 @@ class Beginning extends React.Component {
 
   handleCount = prevState => {
     if (prevState.msg === 1) {
-      return { msg: "GO" };
+      return { msg: "چلو" };
     }
 
-    if (prevState.msg === "GO") {
+    if (prevState.msg === "چلو") {
       return { msg: undefined };
     }
     return { msg: prevState.msg - 1 };
@@ -38,7 +38,7 @@ class Beginning extends React.Component {
   render() {
     return (
       <div>
-        <h3> GET READY...</h3>
+        <h3> ...تیار ہو جاؤ</h3>
         <h1>{this.state.msg}</h1>
       </div>
     );
