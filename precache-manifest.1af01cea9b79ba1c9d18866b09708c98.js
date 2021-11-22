@@ -1,43 +1,43 @@
 self.__precacheManifest = [
   {
-    "revision": "6307126e9780b4027735",
-    "url": "/urdu_cardinal_numbers_1_to_10/static/css/main.8f8dd3ab.chunk.css"
+    "revision": "3ae93118f25eee74f267",
+    "url": "/urdu_cardinal_numbers_1_to_10/static/css/main.78b1b07d.chunk.css"
   },
   {
-    "revision": "6307126e9780b4027735",
-    "url": "/urdu_cardinal_numbers_1_to_10/static/js/main.dfdf6898.chunk.js"
+    "revision": "3ae93118f25eee74f267",
+    "url": "/urdu_cardinal_numbers_1_to_10/static/js/main.5d1bbf21.chunk.js"
   },
   {
     "revision": "c03330703f3accfda53e",
     "url": "/urdu_cardinal_numbers_1_to_10/static/js/runtime~main.0dc932d8.js"
   },
   {
-    "revision": "108fabd6279032142c0d",
-    "url": "/urdu_cardinal_numbers_1_to_10/static/css/2.faab843c.chunk.css"
+    "revision": "496b186d9060dfd1dda0",
+    "url": "/urdu_cardinal_numbers_1_to_10/static/css/2.5e4e3026.chunk.css"
   },
   {
-    "revision": "108fabd6279032142c0d",
-    "url": "/urdu_cardinal_numbers_1_to_10/static/js/2.962353b1.chunk.js"
-  },
-  {
-    "revision": "09b0b7bb4e8aad40481825ec9d91d223",
-    "url": "/urdu_cardinal_numbers_1_to_10/static/media/rightAnswer.09b0b7bb.mp3"
-  },
-  {
-    "revision": "ddcbc59b2917e3dbeb737fca1e3ede4e",
-    "url": "/urdu_cardinal_numbers_1_to_10/static/media/wrongAnswer.ddcbc59b.mp3"
+    "revision": "496b186d9060dfd1dda0",
+    "url": "/urdu_cardinal_numbers_1_to_10/static/js/2.b82cfce5.chunk.js"
   },
   {
     "revision": "5f1c11259cb15bc3800a9bb43a4a7242",
     "url": "/urdu_cardinal_numbers_1_to_10/static/media/background.5f1c1125.gif"
   },
   {
-    "revision": "424d18986561c7039221eb97a66aef6b",
-    "url": "/urdu_cardinal_numbers_1_to_10/static/media/tostartpressbutton.424d1898.mp3"
+    "revision": "1e695820a1572347f6a0a76f53280775",
+    "url": "/urdu_cardinal_numbers_1_to_10/static/media/tostartpressbutton.1e695820.mp3"
   },
   {
-    "revision": "8efff185f64e4259ae68a4074dbfb0e6",
-    "url": "/urdu_cardinal_numbers_1_to_10/static/media/321go.8efff185.mp3"
+    "revision": "b8fca396c389eea881872cc7f0e7855b",
+    "url": "/urdu_cardinal_numbers_1_to_10/static/media/321go.b8fca396.mp3"
+  },
+  {
+    "revision": "88e8a851b1954501951ae45cf46c1e2f",
+    "url": "/urdu_cardinal_numbers_1_to_10/static/media/rightAnswer.88e8a851.mp3"
+  },
+  {
+    "revision": "48b32efb6257ce0ee9f40b87b5894871",
+    "url": "/urdu_cardinal_numbers_1_to_10/static/media/wrongAnswer.48b32efb.mp3"
   },
   {
     "revision": "47df90f219856aa11addc7a1fdce1ea2",
@@ -88,7 +88,7 @@ self.__precacheManifest = [
     "url": "/urdu_cardinal_numbers_1_to_10/static/media/grocerySound.a0d6b138.mp3"
   },
   {
-    "revision": "3bb6b07d53bed487be3e390c52dfc7c7",
+    "revision": "3248c20dbd24e5826fefa2431e77cbae",
     "url": "/urdu_cardinal_numbers_1_to_10/index.html"
   }
 ];

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/urdu_cardinal_numbers_1_to_10/precache-manifest.bb7828f2ddbb88606d2d7e1b058efafc.js"
+  "/urdu_cardinal_numbers_1_to_10/precache-manifest.1af01cea9b79ba1c9d18866b09708c98.js"
 );
 
 workbox.clientsClaim();
