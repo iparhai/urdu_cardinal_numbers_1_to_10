@@ -35,7 +35,7 @@ function Message({ text, type }) {
     return (
         <span>
             {text && (type === "success") && <h4 style={{color: Colors.green }}>{text}</h4> } 
-            {text && (type !== "success") && <h4 style={{color: Colors.midGray }}>Answer:  <span style={{color: Colors.lightGray }}>{text}</span></h4>}
+            {text && (type !== "success") && <h4 style={{color: Colors.midGray }}>صحیح جواب: <span style={{color: Colors.lightGray }}>{text}</span></h4>}
         </span>
     )
 }
